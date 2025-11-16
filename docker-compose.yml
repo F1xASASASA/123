@@ -1,0 +1,38 @@
+version: "3.5"
+services:
+  redis:
+    image: 'bitnami/redis:latest'
+    env_file:
+      - .env
+    volumes:
+      - ./redisData:/var/lib/redis/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6390:6379"
+  bot:
+    restart: always
+    network_mode: host
+    build:
+      context: .
+      dockerfile: bot.Dockerfile
+    env_file:
+      - .env
+  server:
+    restart: always
+    network_mode: host
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    env_file:
+      - .env
+    environment:
+      - SERVER_PORT=3034
+  db:
+    restart: always
+    env_file:
+      - .env
+    image: postgres:16.1-bullseye
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - "5443:5432"
