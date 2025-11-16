@@ -1,0 +1,3 @@
+;```bash
+docker run --rm -e QUALITY=100  -v .:/source edasriyan/lottie-to-png
+```
