@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!--    <link rel="icon" type="image/svg+xml" href="/vite.svg" />-->
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Telegram App</title>
+
+  <style>
+    body {
+      margin: 0;
+      background-color: white;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: black;
+      }
+    }
+
+    #loader {
+      width: 100vw;
+      height: var(--tg-viewport-height);
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(0, 0, 0, 0.15);
+    }
+
+    #loader svg {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 50%;
+      }
+
+      50% {
+        opacity: 100%;
+      }
+
+      100% {
+        opacity: 50%;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #loader {
+        background-color: black;
+        color: rgba(255, 255, 255, 0.15);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loader">
+    <svg width="25%" height="25%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor"
+        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8m-.22-13h-.06c-.4 0-.72.32-.72.72v4.72c0 .35.18.68.49.86l4.15 2.49c.34.2.78.1.98-.24a.71.71 0 0 0-.25-.99l-3.87-2.3V7.72c0-.4-.32-.72-.72-.72" />
+    </svg>
+  </div>
+  <div id="root"></div>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <!--suppress HtmlUnknownTarget -->
+  <script src="/src/app/index.tsx" type="module"></script>
+  <script src="https://js.sentry-cdn.com/a22499ffc09b2cc85d9deb8b64806eea.min.js" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZZRZ9MEWX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-DZZRZ9MEWX');
+  </script>
+</body>
+
+</html>

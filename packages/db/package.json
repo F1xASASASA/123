@@ -1,0 +1,9 @@
+{
+    "name": "db",
+    "module": "index.ts",
+    "type": "module",
+    "scripts": {
+        "migrate": "bunx dotenv -e ../../.env -- prisma generate && bunx dotenv -e ../../.env -- prisma migrate dev",
+        "studio": "dotenv -e ../../.env -- prisma studio"
+    }
+}
