@@ -1,0 +1,15 @@
+{
+    "name": "bot",
+    "module": "src/index.ts",
+    "type": "module",
+    "scripts": {
+        "dev": "bun run --env-file=../../.env --watch .",
+        "start": "bun run --env-file=../../.env ."
+    },
+    "devDependencies": {
+        "bun-types": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    }
+}
